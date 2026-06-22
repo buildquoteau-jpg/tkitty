@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1c1917;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white text-stone-900 font-sans;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-stone-200;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-stone-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-stone-400;
+  }
+}
+
+@layer components {
+  .page-title {
+    @apply font-serif text-3xl font-normal text-stone-900 tracking-tight;
+  }
+
+  .section-title {
+    @apply font-serif text-xl font-normal text-stone-800;
+  }
+
+  .label-text {
+    @apply text-xs font-medium text-stone-500 uppercase tracking-widest;
+  }
+
+  .body-text {
+    @apply text-sm text-stone-600 leading-relaxed;
+  }
+
+  .amount-large {
+    @apply font-serif text-4xl font-normal text-stone-900 tracking-tight;
+  }
+
+  .amount-medium {
+    @apply font-serif text-2xl font-normal text-stone-900;
+  }
+
+  .divider {
+    @apply border-t border-stone-100;
+  }
+
+  .card {
+    @apply bg-white border border-stone-100 rounded-2xl;
+  }
+
+  .card-padded {
+    @apply bg-white border border-stone-100 rounded-2xl p-6;
+  }
+
+  .input-base {
+    @apply w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-400 focus:bg-white transition-colors;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-stone-900 text-white text-sm font-medium rounded-xl hover:bg-stone-800 active:bg-stone-950 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-white text-stone-700 text-sm font-medium rounded-xl border border-stone-200 hover:bg-stone-50 hover:border-stone-300 active:bg-stone-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 text-stone-600 text-sm font-medium rounded-lg hover:bg-stone-100 hover:text-stone-900 transition-colors disabled:opacity-40;
+  }
+
+  .nav-link {
+    @apply block text-sm text-stone-500 hover:text-stone-900 transition-colors py-2;
+  }
+
+  .nav-link-active {
+    @apply block text-sm text-stone-900 font-medium py-2;
+  }
+
+  /* Destination card photo overlay */
+  .photo-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
+  }
+
+  /* Member colour dot */
+  .member-dot {
+    @apply inline-block w-2.5 h-2.5 rounded-full flex-shrink-0;
+  }
+
+  /* Vote marker */
+  .vote-marker {
+    @apply inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full;
+  }
+
+  /* Streaming text animation */
+  .streaming-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
